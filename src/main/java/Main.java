@@ -21,7 +21,7 @@ public class Main {
 //        WebElement logo  = driver.findElement(By.cssSelector("#header > div > a > img.large"));
 //        logo.click();
 //
-//        WebElement navigate = driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent > a"));
+//        WebElement navigate = driver.findElement(By.cssSelector(".level0.nav-3.parent"));
 //        navigate.click();
 //        //WebElement back = driver.findElement(By.cssSelector());
 //        driver.navigate().back();
@@ -62,26 +62,27 @@ public class Main {
 //        WebDriver driver4 = new ChromeDriver();
 //        driver4.get("http://qa2.dev.evozon.com/");
 //        //List<WebElement> products = driver4.findElements(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul > li:nth-child(1) > div > h3 > a"));
-//        List<WebElement> products =driver4.findElements(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul"));
+//       //List<WebElement> products =driver4.findElements(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul"));
+//        List<WebElement>products =driver4.findElements(By.cssSelector(".product-name"));
 //        int number = products.size();
 //        System.out.println("Products number: " + number);
 //        for (WebElement element : products) {
 //            System.out.println(element.getText());
 //        }
-//        driver4.quit();
+       // driver4.quit();
 
         //Navigation
-        WebDriver driver5 = new ChromeDriver();
-        driver5.get("http://qa2.dev.evozon.com/");
-
-        List<WebElement> products1 = driver5.findElements(By.cssSelector("#nav"));
-        for(WebElement elements : products1 ) {
-            System.out.print("Navigation headline: " + elements.getText());
-        }
-        WebElement sale = driver5.findElement(By.cssSelector("#nav > ol > li.level0.nav-5.parent > a"));
-        sale.click();
-        driver5.quit();
-
+//
+        //WebDriver driver5 = new ChromeDriver();
+//        driver5.get("http://qa2.dev.evozon.com/");
+//
+//        List<WebElement> products1 = driver5.findElements(By.cssSelector("#nav"));
+//        for(WebElement elements : products1 ) {
+//            System.out.print("Navigation headline: " + elements.getText());
+//        }
+//        WebElement sale = driver5.findElement(By.cssSelector(".level0.nav-5.parent"));
+//        sale.click();
+//        driver5.quit();
 
 
 

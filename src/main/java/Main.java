@@ -78,6 +78,10 @@ public class Main {
         for(WebElement elements : products1 ) {
             System.out.print("Navigation headline: " + elements.getText());
         }
+        WebElement sale = driver5.findElement(By.cssSelector("#nav > ol > li.level0.nav-5.parent > a"));
+        sale.click();
+        driver5.quit();
+
 
 
 

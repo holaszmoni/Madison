@@ -48,13 +48,13 @@ public class Main {
 //
 //        //Search
 //
-//        WebDriver driver3 = new ChromeDriver();
-//        driver3.get("http://qa2.dev.evozon.com/");
-//        WebElement clearField = driver3.findElement(By.cssSelector("#search"));
-//        clearField.clear();
-//        WebElement field = driver3.findElement(By.cssSelector("#search"));
-//        field.sendKeys("woman");
-//        field.submit();
+        WebDriver driver3 = new ChromeDriver();
+        driver3.get("http://qa2.dev.evozon.com/");
+        WebElement clearField = driver3.findElement(By.cssSelector("#search"));
+        clearField.clear();
+        WebElement field = driver3.findElement(By.cssSelector("#search"));
+        field.sendKeys("woman");
+        field.submit();
 //        driver3.quit();
 
         //New Products List
@@ -83,6 +83,7 @@ public class Main {
 //        WebElement sale = driver5.findElement(By.cssSelector(".level0.nav-5.parent"));
 //        sale.click();
 //        driver5.quit();
+
 
 
 

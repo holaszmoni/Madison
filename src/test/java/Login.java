@@ -5,13 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 @RunWith(JUnit4.class)
 
 public class Login {
-   static WebDriver driver;
+    static WebDriver driver;
 
     @Before
     public void beforetest() {
@@ -20,37 +22,22 @@ public class Login {
         driver.manage().window().maximize();
         driver.get("http://qa2.dev.evozon.com/customer/account/login/");
     }
+
     @After
-     public void aftertest() {
+    public void aftertest() {
         driver.quit();
     }
 
     @Test
-    public void testLoginPage(){
-       // List<WebElement> account =driver.findElements(By.cssSelector("#header > div > div.skip-links > div > a"));
-       // for (WebElement :account
-        //)
-        {
-
-        }
-       // WebElement account =driver.findElement(By.className("skip-link skip-account"));
-       // account.click();
-       // WebElement login =driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a"));
-       // login.click();
+    public void testLoginPage() {
         WebElement email = driver.findElement(By.cssSelector("#email"));
+        WebElement password = driver.findElement(By.cssSelector("#pass"));
+
         email.sendKeys("moni@yahoo.com");
         email.submit();
-        WebElement password = driver.findElement(By.cssSelector("#pass"));
         password.sendKeys("eminem");
         password.submit();
-
-        //String msg = driver.findElement(By)
-         //       Assert.assertTrue("The message is not display.", msg.contains("Hello, Moni H!"));
-
-
-
-
-
-
-        }
+        WebElement welcomeMsg = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".welcome-msg")));
+        Assert.assertEquals("WELCOME, MONI H!", welcomeMsg.getText());
     }
+}

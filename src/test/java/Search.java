@@ -21,13 +21,11 @@ public class Search {
 
     @After
     public void aftertest() {
-       driver.quit();
+        driver.quit();
     }
 
     @Test
-    public void testsearch() {
-        //WebElement clearField = driver.findElement(By.cssSelector("#search"));
-       // clearField.clear();
+    public void searchNoResultsTest() {
         WebElement field = driver.findElement(By.cssSelector("#search"));
         field.sendKeys("woman");
         field.submit();
@@ -36,4 +34,13 @@ public class Search {
         Assert.assertTrue("The message is not display", msg.equals("Your search returns no results."));
     }
 
+    @Test
+    public void searchResultsTest() {
+        WebElement field = driver.findElement(By.cssSelector("#search"));
+        field.sendKeys("dress");
+        field.submit();
+
+        boolean categoryIsDisplayed = driver.findElement(By.className("category-products")).isDisplayed();
+        Assert.assertTrue("The search results are displayed", categoryIsDisplayed);
+    }
 }

@@ -4,45 +4,29 @@ import helper.Constants;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import page.LoginPage;
 
-import java.util.List;
+import page.LoginPage;
 
 @RunWith(JUnit4.class)
 
-public class Login extends BaseTest{
+public class LoginTest extends BaseTest {
 
     LoginPage loginPage;
 
-
     @Test
-    public void loginTest(){
+    public void loginTest() {
         loginPage = new LoginPage(driver);
 
         loginPage.getLoginPage();
         loginPage.login(Constants.USER_NAME, Constants.USER_PASS);
-        Assert.assertTrue(driver.getCurrentUrl().equals(Constants.BASE_URL + "customer/account/"));
+        Assert.assertTrue(loginPage.getUrl().equals(Constants.BASE_URL + "customer/account/"));
 
-
-
+        loginPage.waitForWelcomeMessage();
+        Assert.assertEquals("WELCOME, MONI H!", loginPage.getWelcomeMessage());
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //    static WebDriver driver;

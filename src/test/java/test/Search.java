@@ -3,11 +3,6 @@ package test;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import page.BasePage;
 import page.SearchPage;
 
 @RunWith(JUnit4.class)
@@ -16,17 +11,22 @@ public class Search extends BaseTest {
     SearchPage searchPage;
 
     @Test
-    public void searchTest(){
+    public void searchNoResultsTest() {
         searchPage = new SearchPage(driver);
 
-        searchPage.getSearchfield();
         searchPage.search("woman");
 
-//        String msg = driver.findElement(By.className("note-msg")).getText();
-//        Assert.assertTrue("The message is not display", msg.equals("Your search returns no results."));
-
+        Assert.assertTrue("The no results message is not display",
+                searchPage.getNoResultsMessage().equals("Your search returns no results."));
     }
 
+    @Test
+    public void searchResultsTest() {
+        searchPage = new SearchPage(driver);
+
+        searchPage.search("dress");
+        Assert.assertTrue("The search results are displayed", searchPage.productsCategoryIsDisplayed());
+    }
 }
 
 //    WebDriver driver;

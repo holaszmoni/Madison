@@ -13,4 +13,12 @@ public class BasePage {
     protected WebDriver getDriver(){
         return driver;
     }
+
+    public String getTitle(){
+        return driver.getTitle();
+    }
+
+    public String getUrl(){
+        return driver.getCurrentUrl();
+    }
 }
